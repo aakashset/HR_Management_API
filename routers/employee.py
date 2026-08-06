@@ -13,9 +13,9 @@ router = APIRouter(
 )
 
 
-# =========================
+
 # DATABASE CONNECTION
-# =========================
+
 def get_db():
     db = SessionLocal()
     try:
@@ -24,9 +24,9 @@ def get_db():
         db.close()
 
 
-# =========================
+
 # CREATE EMPLOYEE
-# =========================
+
 @router.post("/", response_model=schemas.EmployeeResponse)
 def create_employee(
     employee: schemas.EmployeeCreate,
@@ -35,21 +35,21 @@ def create_employee(
     return crud.create_employee(db, employee)
 
 
-# =========================
+
 # GET ALL EMPLOYEES
-# =========================
+
 @router.get("/", response_model=list[schemas.EmployeeResponse])
 def get_employees(
     skip: int = 0,
-    limit: int = 10,
+    limit: int = 100,
     db: Session = Depends(get_db)
 ):
     return crud.get_employees(db, skip, limit)
 
 
-# =========================
+
 # SEARCH EMPLOYEES
-# =========================
+
 @router.get("/search/", response_model=list[schemas.EmployeeResponse])
 def search_employee(
     name: Optional[str] = None,
@@ -67,9 +67,9 @@ def search_employee(
     )
 
 
-# =========================
+
 # GET EMPLOYEE BY ID
-# =========================
+
 @router.get("/{emp_id}", response_model=schemas.EmployeeResponse)
 def get_employee(
     emp_id: int,
@@ -86,9 +86,9 @@ def get_employee(
     return employee
 
 
-# =========================
+
 # UPDATE EMPLOYEE
-# =========================
+
 @router.put("/{emp_id}", response_model=schemas.EmployeeResponse)
 def update_employee(
     emp_id: int,
@@ -110,9 +110,8 @@ def update_employee(
     return updated_employee
 
 
-# =========================
 # DELETE EMPLOYEE
-# =========================
+
 @router.delete("/{emp_id}")
 def delete_employee(
     emp_id: int,

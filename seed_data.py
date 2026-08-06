@@ -5,9 +5,9 @@ db = SessionLocal()
 
 try:
 
-    # =========================
+
     # DEPARTMENTS
-    # =========================
+
 
     departments = [
         "Information Technology",
@@ -33,9 +33,9 @@ try:
 
     db.commit()
 
-    # =========================
+
     # DESIGNATIONS
-    # =========================
+
 
     designations = [
         "Software Engineer",
@@ -63,9 +63,9 @@ try:
 
     db.commit()
 
-    # =========================
+
     # CITIES
-    # =========================
+
 
     cities = [
         "Chennai",

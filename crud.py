@@ -210,7 +210,7 @@ def create_employee(
 def get_employees(
     db: Session,
     skip: int = 0,
-    limit: int = 10
+    limit: int = 100
 ):
     return (
         db.query(models.Employee)

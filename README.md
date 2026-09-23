@@ -1,53 +1,56 @@
 # 🏢 HR Management System
 
-A full-stack **HR Management System** built using **FastAPI, SQLAlchemy, MySQL, and Streamlit**.
+A full-stack **Human Resource Management System** built using **FastAPI, SQLAlchemy, MySQL, and Streamlit**.
 
-The application provides REST APIs and a Streamlit web interface for managing employees, departments, designations, and cities.
+The application provides RESTful APIs and an interactive Streamlit interface for managing **employees, departments, designations, and cities**.
 
 ---
 
 ## 📌 Project Overview
 
-This project demonstrates a modular HR management application with:
+This project demonstrates how a backend REST API can be integrated with a frontend application and a relational database.
 
-- RESTful APIs using FastAPI
-- MySQL database
-- SQLAlchemy ORM
-- Pydantic data validation
-- CRUD operations
-- Streamlit web interface
-- Employee search and filtering
-- Interactive HR dashboard
+The system follows a modular architecture where:
 
-### Architecture
+- **Streamlit** provides the user interface
+- **FastAPI** handles REST API requests
+- **CRUD layer** manages database operations
+- **SQLAlchemy** provides ORM functionality
+- **MySQL** stores the application data
+
+---
+
+## 🔄 End-to-End Project Flow
 
 ```text
-                    ┌─────────────────────┐
-                    │    Streamlit UI     │
-                    │    Web Interface    │
-                    └──────────┬──────────┘
-                               │
-                          HTTP Requests
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │      FastAPI        │
-                    │      REST API       │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    CRUD Operations  │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │     SQLAlchemy      │
-                    │        ORM          │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │       MySQL         │
-                    │      Database       │
-                    └─────────────────────┘
+                         👤 User
+                           │
+                           ▼
+                  🖥️ Streamlit UI
+                           │
+                     HTTP Requests
+                           │
+                           ▼
+                  ⚡ FastAPI Backend
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+             ▼             ▼             ▼
+        Employees     Departments   Designations
+             │             │             │
+             └─────────────┼─────────────┘
+                           │
+                           ▼
+                     🔄 CRUD Layer
+                           │
+                           ▼
+                   🗃️ SQLAlchemy ORM
+                           │
+                           ▼
+                      🐬 MySQL
+                           │
+                           ▼
+                    Data Response
+                           │
+                           ▼
+                  🖥️ Streamlit UI
